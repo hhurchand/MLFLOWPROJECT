@@ -1,0 +1,8 @@
+name: bdeb_tp1
+
+docker_env:
+  image:hhurchand/bdeb_tp1
+
+entry_points:
+  main:
+    command: "python3 Boston.py"
