@@ -1,8 +1,22 @@
-name: bdeb_tp1
+name: celebs-cnn
 
 docker_env:
-  image:hhurchand/bdeb_tp1
+  image: gnovack/celebs-cnn
 
 entry_points:
   main:
-    command: "python3 Boston.py"
+    parameters:
+      batch_size: {type: int, default: 32}
+      epochs: {type: int, default: 10}
+      convolutions: {type: int, default: 1}
+      training_samples: {type: int}
+      validation_samples: {type: int}
+      randomize_images: {type: bool}
+    command: "python train.py \
+      --batch-size {batch_size} \
+      --epochs {epochs} \
+      --convolutions {convolutions} \
+      --training-samples {training_samples} \
+      --validation-samples {validation_samples} \
+      --randomize-images {randomize_images}"
+
